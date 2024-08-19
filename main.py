@@ -38,3 +38,35 @@ while sign:
         sign = False
     else:
         sign = True
+
+# Homework 3.2
+# Імпорт модулю random
+print('Завдання 2')
+import random 
+
+def get_numbers_ticket(min, max, quantity):  
+    numbers = []
+    # Перевірка вхідних параметрів
+    if min >=1:
+        if max <=1000:
+            for i in range(0, quantity):  
+                # генерація випадкового числа
+                number = random.randint(min, max)
+                while numbers.count(number) != 0: 
+                    # print(numbers.count(number))                   
+                    number = random.randint(min, max)                    
+                numbers += [number]
+            numbers.sort()
+    return numbers
+
+lottery_numbers = get_numbers_ticket(1, 49, 6)
+print("get_numbers_ticket(1, 49, 6)")
+print("Ваші лотерейні числа:", lottery_numbers)
+
+lottery_numbers = get_numbers_ticket(1, 36, 5)
+print("get_numbers_ticket(1, 36, 5)")
+print("Ваші лотерейні числа:", lottery_numbers)
+
+lottery_numbers = get_numbers_ticket(0, 1001, 6)
+print("get_numbers_ticket(0, 1001, 6)")
+print("Ваші лотерейні числа:", lottery_numbers)
